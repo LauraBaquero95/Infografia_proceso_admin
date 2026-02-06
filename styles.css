@@ -794,3 +794,249 @@ body {
         transition: none !important;
     }
 }
+/* ===================================
+   SECCIÓN DE REFLEXIÓN FINAL
+   =================================== */
+.reflexion-container {
+    margin-top: 30px;
+}
+
+.reflexion-intro {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 30px;
+    border-radius: 10px;
+    border-left: 5px solid var(--accent);
+    margin-bottom: 40px;
+}
+
+.reflexion-intro p {
+    color: #333;
+    font-size: 1.1rem;
+    line-height: 1.9;
+    margin: 0;
+}
+
+.retos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.reto-card {
+    background: white;
+    border: 2px solid #e0e0e0;
+    padding: 30px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    page-break-inside: avoid;
+}
+
+.reto-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 8px 20px rgba(0,168,232,0.15);
+    transform: translateY(-5px);
+}
+
+/* Efecto de brillo al hover */
+.reto-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(0, 168, 232, 0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+}
+
+.reto-card:hover::before {
+    left: 100%;
+}
+
+.reto-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.reto-card:hover .reto-icon {
+    transform: rotateY(360deg) scale(1.1);
+}
+
+.reto-card h3 {
+    color: var(--primary);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.reto-card p {
+    color: #555;
+    line-height: 1.8;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.reto-card p strong {
+    color: var(--secondary);
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.05rem;
+}
+
+.reflexion-conclusion {
+    background: linear-gradient(135deg, #003d82 0%, #0066cc 100%);
+    padding: 40px;
+    border-radius: 12px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    page-break-inside: avoid;
+}
+
+/* Patrón de fondo decorativo */
+.reflexion-conclusion::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(255,255,255,0.03) 10px,
+            rgba(255,255,255,0.03) 20px
+        );
+    pointer-events: none;
+}
+
+.reflexion-conclusion h3 {
+    color: white;
+    font-family: 'Merriweather', serif;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+}
+
+.reflexion-conclusion p {
+    color: rgba(255,255,255,0.95);
+    font-size: 1.05rem;
+    line-height: 1.9;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.mensaje-final {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    padding: 25px 30px;
+    border-radius: 10px;
+    border: 2px solid rgba(255,255,255,0.3);
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+}
+
+.icono-mensaje {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+    animation: pulse-light 2s ease-in-out infinite;
+}
+
+@keyframes pulse-light {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.mensaje-final p {
+    margin: 0;
+    color: white;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.mensaje-final strong {
+    color: #ffffff;
+    font-size: 1.15rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Responsive para la sección de reflexión */
+@media (max-width: 768px) {
+    .retos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .reflexion-conclusion {
+        padding: 30px 25px;
+    }
+
+    .mensaje-final {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .icono-mensaje {
+        font-size: 2rem;
+    }
+}
+
+/* Print styles para la sección de reflexión */
+@media print {
+    .reflexion-container {
+        page-break-inside: avoid;
+    }
+
+    .retos-grid {
+        page-break-inside: avoid;
+    }
+
+    .reto-card {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    .reflexion-conclusion {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        background: var(--primary) !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .mensaje-final {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+}
